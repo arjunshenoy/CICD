@@ -36,7 +36,7 @@ jobs:
         #password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Login
       run: | 
-        docker login --username arjunkshenoy --password 1Life@Teradta 
+        docker login --username arjunkshenoy --password ${{secrets.DOCKER_PASSWORD}} 
     - name: Docker Build 
       run: docker build -f Dockerfile -t dockerApp/Test:$(Date +%s) .
     - name: Docker push
