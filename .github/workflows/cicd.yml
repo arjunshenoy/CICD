@@ -36,7 +36,7 @@ jobs:
         #password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Docker Login
       run: | 
-        winpty docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}} 
+        docker login --username arjunkshenoy --password 1Life@Teradta 
     - name: Docker Build 
       run: docker build -f Dockerfile -t dockerApp/Test:$(Date +%s) .
     - name: Docker push
