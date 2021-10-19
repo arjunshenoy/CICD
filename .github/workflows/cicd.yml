@@ -34,9 +34,12 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        push: ${{ GitHub.event_name != 'pull_request' }}
-        tags: ${{ steps.meta.outputs.tags }}
+        push: ${{ GitHub.event_name != 'pull_request' &&  github.ref == 'refs/heads/main' }}
         labels: ${{ steps.meta.outputs.labels }}
+        tags: |
+            arjunkshenoy/cicd:latest 
+    - name: Image digest
+      run: echo ${{ steps.docker_build.outputs.digest }}
       
    # - name: Build Docker Image
     #  uses: mr-smithers-excellent/docker-build-push@v5
