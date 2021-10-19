@@ -34,7 +34,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        push: ${{ GitHub.event_name != 'pull_request' &&  github.ref == 'refs/heads/main' }}
+        push: ${{ GitHub.event_name != 'pull_request' &&  github.ref == 'refs/heads/master' }}
         labels: ${{ steps.meta.outputs.labels }}
         tags: |
             arjunkshenoy/cicd:latest 
